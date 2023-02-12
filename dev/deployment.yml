@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gradle-app
+spec:
+  selector:
+    matchLabels:
+      app: gradle-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: gradle-app
+    spec:
+      containers:
+        - name: gradle-app
+          image: probstin/gradle-app
+          ports:
+            - containerPort: 8082
